@@ -34,7 +34,8 @@ const arr3 = [3,2,6];
 function solution(arr, divisor) {
     //console.log(arr,divisor);
     var answer = [];
-
+    
+    //[o] 나눠떨어지는 값 찾기
     for(let i = 0; i < arr.length; i++){
         if(arr[i] % divisor === 0){
             answer.push(arr[i]);
@@ -46,22 +47,30 @@ function solution(arr, divisor) {
     
     //정렬하는 구문 만들기
     //answer 배열을 순환하면서 [i][i+1]비교하기
-    for(let i = 0; i < answer.length; i++){
-        let tmp = "";
-        console.log("###",answer);
-        console.log("####",tmp);
-        if(answer[i] > answer[i+1]){
-            tmp = answer[i];
-            answer[i] = answer[i+1];
-            answer[i+1] = tmp; 
-        }
-        console.log("@@@",tmp);
-    }
     
+    for(let i = 0; i < answer.length; i++){ //순차적으로 반복하기위해서 
+        let tmp = "";
+        // let minusResult = answer.length
+        // minusResult = 0;
+        
+        if(answer[0] === -1 ){
+            answer.length = 1;
+        }
+        for(let j = 0; j < answer.length-i; j++){ //끝까지 돌았을 때 다시 처음부터 돌 수 있게
+            if(answer[j] > answer[j+1]){ //순서바꾸기 
+                tmp = answer[j];
+                answer[j] = answer[j+1];
+                answer[j+1] = tmp; 
+                console.log("@@@33",answer);
+            }
+        }
+        //answer.push(tmp[i]);
+    }
+
+ 
     return answer;
 }
-
-//console.log(solution(arr2,1));
+console.log(solution(arr3,10));
 
 //정렬??
 //->answer에 push하기 전에 정렬해준다??
