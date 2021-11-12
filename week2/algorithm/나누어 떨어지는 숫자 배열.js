@@ -63,7 +63,7 @@ function solution(arr, divisor) {
 
 //console.log(solution(arr2,1));
 
-//정렬??어또케?
+//정렬??
 //->answer에 push하기 전에 정렬해준다??
 //아니면 푸쉬하고 나서 정렬한다? 
 
