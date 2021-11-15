@@ -18,14 +18,14 @@ function getMean (arr){
 }
 console.log(getMean(data));
 
-// //[] 2. 표준편차 구하기
+//[] 2. 표준편차 구하기
 /*
 [o]1 단계: 평균을 구합니다. oo
-======
+
 [o]2 단계: 각 자료마다 평균으로부터 떨어진 거리를 제곱한 값을 구합니다.
 [o]3 단계: 2 단계에서 나온 값을 모두 더합니다.
 [o]4 단계: 위에서 얻은 값을 자료점의 개수로 나눕니다.
-=====
+
 [o]5 단계: 제곱근을 구합니다.
 */
 
@@ -48,3 +48,10 @@ function getSqrt(arr){
 console.log(getSqrt(data));
 
 //70-80점 사이의 값을 갖는 비율 - 표준정규분포표를 참고
+const average = getMean(data);
+const sqrt = getSqrt(data);
+
+const seven = Math.abs((70-average))/sqrt;
+const eight = Math.abs((80-average))/sqrt;
+
+console.log(seven,eight);
