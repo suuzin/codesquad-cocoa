@@ -47,11 +47,11 @@ function getSqrt(arr){
 }
 console.log(getSqrt(data));
 
-//70-80점 사이의 값을 갖는 비율 - 표준정규분포표를 참고
-const average = getMean(data);
-const sqrt = getSqrt(data);
+//70-80점 사이의 값을 갖는 비율 - 표준정규분포표를 참고 === 진행중
+// const average = getMean(data);
+// const sqrt = getSqrt(data);
 
-const seven = Math.abs((70-average))/sqrt;
-const eight = Math.abs((80-average))/sqrt;
+const seven = Math.abs((70-average));
+const eight = Math.abs((80-average));
 
-console.log(seven,eight);
+//console.log(seven,eight);
