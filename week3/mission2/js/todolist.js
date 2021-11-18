@@ -1,34 +1,38 @@
-function register(){
-    let addP = document.createElement("p"); 
-    let doIt = document.querySelector("#doit");
+const addBtn = document.querySelector('#btn');
+const taskInput = document.querySelector("#taskinput");
+const alltodo = document.querySelector("#allList");
 
-    let input = document.createElement("input"); 
-    input.setAttribute('type','checkbox');
-    
-    addP.appendChild(input);
-
-    let newText = document.createTextNode(doIt.value); 
-    addP.appendChild(newText);
-
-    let delBtn = document.createElement("span");
-    let delText = document.createTextNode("X");
-    delBtn.setAttribute("class","del"); 
-    delBtn.appendChild(delText); 
-    addP.appendChild(delBtn);
-    
-    let allList = document.querySelector("#allList");
-    allList.appendChild(addP); 
-    doIt.value =""; 
-
+function doneToDo(event){
+    event.target.parentNode.classList.toggle("clicked");
+}
+function deleteToDo(){
     let removeBtn = document.querySelectorAll(".del");
-    for(let i = 0; i < removeBtn.length; i++){ 
-        removeBtn[i].addEventListener("click",function(){ 
-            if(this.parentNode.parentNode) 
-                this.parentNode.parentNode.removeChild(this.parentNode); 
-        });
-    }
-
-    input.addEventListener("click",function(ev){
-        ev.target.parentNode.classList.toggle('clicked');
+    removeBtn.forEach((el) => {
+        if(this.parentNode.parentNode){
+            this.parentNode.parentNode.removeChild(this.parentNode);
+        }
     });
 }
+function registerToDO(e) {
+    e.preventDefault();
+    let addtodo = document.createElement("p");
+    let taskContent = document.createElement("input");
+    let delBtn = document.createElement("span");
+    
+    taskContent.setAttribute("type","checkbox");
+    delBtn.setAttribute("class","del");
+
+    let newText = document.createTextNode(taskInput.value);
+    let delText = document.createTextNode("x");
+
+    addtodo.appendChild(taskContent);
+    addtodo.appendChild(newText);
+    delBtn.appendChild(delText);
+    addtodo.appendChild(delBtn);
+    alltodo.appendChild(addtodo);
+    taskInput.value = "";
+
+    delBtn.addEventListener("click",deleteToDo);
+    taskContent.addEventListener("click",doneToDo);
+}
+addBtn.addEventListener("click",registerToDO);
