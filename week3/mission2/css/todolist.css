@@ -31,7 +31,7 @@ button:hover {
     font-size:20px;
     padding:0px;
     line-height: 1.5;
-    display: flex;
+    /* display: flex; */
 }
 .del {
     text-align: center;
@@ -41,6 +41,6 @@ button:hover {
     justify-content: flex-end;
     margin-right:10px;
 }
-.checked {
+.clicked {
     text-decoration: line-through;
 }
