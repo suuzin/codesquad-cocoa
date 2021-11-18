@@ -17,14 +17,13 @@ input[type="text"] {
 }
 button {
     width:50px;
-    border:1px solid #ccc;
+    background:skyblue;
+    /* border:1px solid skyblue; */
     border-radius:7px;
     padding:8px;	
     margin-left:30px;
 }
-button:hover {
-    background-color:#ccc;
-}
+
 
 #allList > p {
     width:500px;
@@ -40,6 +39,7 @@ button:hover {
     float:right;
     justify-content: flex-end;
     margin-right:10px;
+    cursor:pointer;
 }
 .clicked {
     text-decoration: line-through;
