@@ -2,6 +2,8 @@ const addBtn = document.querySelector('#btn');
 const taskInput = document.querySelector("#taskinput");
 const alltodo = document.querySelector("#allList");
 
+//const toDoList = [];
+
 function doneToDo(event){
     event.target.parentNode.classList.toggle("clicked");
 }
@@ -13,26 +15,29 @@ function deleteToDo(){
         }
     });
 }
-function registerToDO(e) {
+function registerToDo(e) {
     e.preventDefault();
-    let addtodo = document.createElement("p");
-    let taskContent = document.createElement("input");
-    let delBtn = document.createElement("span");
     
+    let addTodo = document.createElement("p");
+    
+    let taskContent = document.createElement("input");
     taskContent.setAttribute("type","checkbox");
-    delBtn.setAttribute("class","del");
+    addTodo.appendChild(taskContent);
 
     let newText = document.createTextNode(taskInput.value);
+    addTodo.appendChild(newText);
+    
+    let delBtn = document.createElement("span");
     let delText = document.createTextNode("x");
-
-    addtodo.appendChild(taskContent);
-    addtodo.appendChild(newText);
+    delBtn.setAttribute("class","del");
     delBtn.appendChild(delText);
-    addtodo.appendChild(delBtn);
-    alltodo.appendChild(addtodo);
+    addTodo.appendChild(delBtn);
+    
+    //toDoList.push(taskInput.value);
+    alltodo.appendChild(addTodo);
     taskInput.value = "";
 
     delBtn.addEventListener("click",deleteToDo);
     taskContent.addEventListener("click",doneToDo);
 }
-addBtn.addEventListener("click",registerToDO);
+addBtn.addEventListener("click",registerToDo);
