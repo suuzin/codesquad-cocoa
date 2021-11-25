@@ -14,6 +14,7 @@ class View{
     }
 
     deleteToDo(event){
+        console.log("delete");
 
     }
 
@@ -25,8 +26,10 @@ class View{
     handleToDoSubmit(event){
         event.preventDefault();
         console.log("2.init");
+
         const newTodo = toDoInput.value;
-        console.log("newtodo",newTodo);
+        
+        // console.log("newtodo",newTodo);
         toDoButton.addEventListener("click",this.paintToDo.bind(this));
         toDoInput.value ="";
     }
@@ -34,24 +37,24 @@ class View{
     paintToDo(newTodo){
         console.log("3.paintTodo");
 
-        const li = document.createElement("li");
+        this.addTodo = document.createElement("li");
     
-        const check = document.createElement("input");
-        check.type = "checkbox";
-        li.appendChild(check);
-        //check.addEventListener("click",this.doneToDo)
-
-        const span = document.createElement("span");
-        span.innerText = newTodo;
-        li.appendChild(span);
-
-        const button = document.createElement("button");
-        button.innerText="x";
-        li.appendChild(button);
-        //button.addEventListener("click",this.deleteToDo);
+        this.checkButton = document.createElement("input");
+        this.checkButton.type = "checkbox";
+        this.addTodo.appendChild(this.checkButton);
+        this.checkButton.addEventListener("click",this.deleteToDo.bind(this));
         
-        toDoList.appendChild(li);
+        this.addContent = document.createElement("span");
 
+        this.addContent.innerText = toDoInput.value;
+        this.addTodo.appendChild(this.addContent);
+
+        this.delBtn = document.createElement("button");
+        this.delBtn.innerText="x";
+        this.addTodo.appendChild(this.delBtn);
+        this.checkButtonbutton.addEventListener("click",this.doneToDo);
+        
+        toDoList.appendChild(this.addTodo);
     }
 }
 const toDoInput = document.querySelector("#todo-form input");
