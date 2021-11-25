@@ -41,3 +41,54 @@ function registerToDo(e) {
     taskContent.addEventListener("click",doneToDo);
 }
 addBtn.addEventListener("click",registerToDo);
+
+//함수 ======================
+const toDoForm = document.getElementById("todo-form");
+const toDoInput = document.querySelector("#todo-form input");
+const toDoList = document.getElementById("todo-list");
+
+
+function doneToDo(event){
+    const li = event.target.parentElement;
+    li.classList.toggle("clicked")
+
+}
+
+function deleteToDo(event){
+    const li = event.target.parentElement;
+    li.remove();
+}
+
+function paintToDo(newTodo){
+    const li = document.createElement("li");
+    
+    const check = document.createElement("input");
+    check.type = "checkbox";
+    li.appendChild(check);
+    check.addEventListener("click",doneToDo)
+
+    const span = document.createElement("span");
+    span.innerText = newTodo;
+    li.appendChild(span);
+
+    const button = document.createElement("button");
+    button.innerText="x";
+    li.appendChild(button);
+    button.addEventListener("click",deleteToDo);
+
+    toDoList.appendChild(li);
+}
+
+function handleToDoSubmit(event){
+    event.preventDefault();
+    const newTodo = toDoInput.value;
+    toDoInput.value ="";
+    toDos.push(newTodo);
+    paintToDo(newTodo);
+    //saveToDos();
+}
+toDoForm.addEventListener("submit",handleToDoSubmit);
+
+
+
+
