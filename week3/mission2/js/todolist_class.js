@@ -10,35 +10,35 @@ class TodoManager{
         this.paintToDo(newTodo);
     }
     paintToDo(newTodo){
-        const li = document.createElement("li");
+        const addList = document.createElement("addList");
     
-        const check = document.createElement("input");
-        check.type = "checkbox";
-        li.appendChild(check);
-        check.addEventListener("click",this.doneToDo)
+        const checkBtn = document.createElement("input");
+        checkBtn.type = "checkbox";
+        addList.appendChild(checkBtn);
+        checkBtn.addEventListener("click",this.doneToDo)
 
-        const span = document.createElement("span");
-        span.innerText = newTodo;
-        li.appendChild(span);
+        const toDoContent = document.createElement("toDoContent");
+        toDoContent.innerText = newTodo;
+        addList.appendChild(toDoContent);
 
-        const button = document.createElement("button");
-        button.innerText="x";
-        li.appendChild(button);
-        button.addEventListener("click",this.deleteToDo);
+        const delBtn = document.createElement("delBtn");
+        delBtn.innerText="x";
+        addList.appendChild(delBtn);
+        delBtn.addEventListener("click",this.deleteToDo);
         
         // this.deleteToDo(event); <- target 못읽는다.
-        toDoList.appendChild(li);
+        toDoList.appendChild(addList);
     }
     deleteToDo(event){
-        const li = event.target.parentElement;
-        li.remove();
-        //this.todoList = this.todoList.filter(element => element === li);
+        const addList = event.target.parentElement;
+        addList.remove();
+        //this.todoList = this.todoList.filter(element => element === addList);
         //console.log()
         //console.log(this.todoList);
     }
     doneToDo(event){
-        const li = event.target.parentElement;
-        li.classList.toggle("clicked");
+        const addList = event.target.parentElement;
+        addList.classList.toggle("clicked");
     }
 }
 const toDoInput = document.querySelector("#todo-form input");
