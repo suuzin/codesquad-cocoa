@@ -1,6 +1,6 @@
 const myReduce = (arr, callback, initialValue) => {
-    arr.forEach(element => {
-       initialValue = callback(initialValue,element) 
+    arr.forEach(el => {
+       initialValue = callback(initialValue,el) 
     });
     return initialValue;
 }
