@@ -5,7 +5,7 @@ let arr2 =[1,1,1,1,1];
             if(arr[j]>arr[i]) arr2[i]++;
         }
     }
-    return arr2;
+    return arr2; 
     }
 let arr = [87, 89, 92, 100, 76];
 console.log(solution(arr));
