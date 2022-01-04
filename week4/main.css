@@ -1,0 +1,32 @@
+body{
+    display:flex;
+    justify-content: center;
+    text-align:left;
+}
+
+#container{
+    width:300px;
+    padding:20px;
+}
+
+ul,li{
+    list-style-type: none;
+}
+
+#main-list{
+    width:260px;
+    padding:20px;
+    text-align:center;
+    border:1px solid;
+}
+#dropdown-menu{
+    width:300px;
+    padding-left:0px;
+    display: none;
+}
+
+#dropdown-menu li{
+    padding:20px;
+    margin:20px;
+    background:orange;
+}
